@@ -1,4 +1,4 @@
-import { State, action, cached, trigger } from "reactronic";
+import { State, trigger } from "reactronic";
 import { Color } from "../data/color";
 import { CardModel } from "./Card.model";
 import { ColorModel } from "./Color.model";

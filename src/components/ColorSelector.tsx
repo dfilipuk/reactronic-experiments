@@ -3,7 +3,6 @@ import { css } from 'emotion'
 import { reactive } from 'reactronic-toolkit-react'
 import { NativeColorPicker } from './NativeColorPicker'
 import { appState } from '..'
-import { Color } from '../data/color'
 import { CustomColorPicker } from './CustomColorPicker'
 
 const style = {

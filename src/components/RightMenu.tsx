@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { css } from 'emotion'
 import { reactive } from 'reactronic-toolkit-react'
 import { Card } from './Card'
 import { appState } from '..'
