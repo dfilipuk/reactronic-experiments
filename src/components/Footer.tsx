@@ -30,7 +30,7 @@ const style = {
 
 export function Footer(): JSX.Element {
   return reactive(() => {
-    const color = appState.getBaseColor1000Ms();
+    const color = appState.delayedColor.get1000MsDelay();
     return (
       <Card color={color.add(200, 200, 200)}>
         <div className={style.container}>

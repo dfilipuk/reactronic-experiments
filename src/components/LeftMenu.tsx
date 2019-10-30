@@ -22,7 +22,7 @@ const style = {
 
 export function LeftMenu(): JSX.Element {
   return reactive(() => {
-    const color = appState.baseColor500Ms;
+    const color = appState.delayedColor.delay500Ms;
     return (
       <Card color={color.add(200, 0, 0)}>
         <div className={style.container}>

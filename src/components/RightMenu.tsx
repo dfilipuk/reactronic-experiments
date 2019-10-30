@@ -6,7 +6,7 @@ import { appState } from '..'
 
 export function RightMenu(): JSX.Element {
   return reactive(() => {
-    const color = appState.getBaseColor500Ms();
+    const color = appState.delayedColor.get500MsDelay();
     const startColor = color.add(50, 170, 140);
     return (
       <Card color={color.add(0, 0, 255)}>

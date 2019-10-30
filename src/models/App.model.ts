@@ -1,17 +1,15 @@
-import { State, action, cached, trigger, delay, reentrance, Reentrance } from "reactronic";
+import { State, action, cached, trigger } from "reactronic";
 import { Color } from "../data/color";
 import { CardModel } from "./Card.model";
 import { ColorModel } from "./Color.model";
+import { DelayedColorModel } from "./DelayedColor.model";
 
 export class AppModel extends State {
   private _baseColor: Color;
 
   baseColor: Color;
-  baseColor250Ms: Color;
-  baseColor500Ms: Color;
-  baseColor750Ms: Color;
-  baseColor1000Ms: Color;
 
+  delayedColor: DelayedColorModel;
   card: CardModel;
   colorFromCustomColorPicker: ColorModel;
 
@@ -20,10 +18,7 @@ export class AppModel extends State {
 
     this._baseColor = new Color(0, 0, 0);
     this.baseColor = this._baseColor;
-    this.baseColor250Ms = this._baseColor;
-    this.baseColor500Ms = this._baseColor;
-    this.baseColor750Ms = this._baseColor;
-    this.baseColor1000Ms = this._baseColor;
+    this.delayedColor = new DelayedColorModel(0, 0, 0);
     this.card = new CardModel(this._baseColor);
     this.colorFromCustomColorPicker = new ColorModel(0, 0, 0);
   }
@@ -31,7 +26,6 @@ export class AppModel extends State {
   @action
   setBaseColor(newColor: Color) {
     this._baseColor = newColor;
-    this.synchronizeColorPickers(newColor);
 
     // --- Doesn't work because Color class does not extends state
     // this._baseColor.r = newColor.r;
@@ -69,58 +63,12 @@ export class AppModel extends State {
   }
 
   @trigger
-  @delay(250)
-  updateBaseColor250Ms() {
-    this.baseColor250Ms = this._baseColor;
-  }
-
-  @trigger
-  @delay(500)
-  updateBaseColor500Ms() {
-    this.baseColor500Ms = this._baseColor;
-  }
-
-  @trigger
-  @delay(750)
-  updateBaseColor750Ms() {
-    this.baseColor750Ms = this._baseColor;
-  }
-
-  @trigger
-  @delay(1000)
-  updateBaseColor1000Ms() {
-    this.baseColor1000Ms = this._baseColor;
-    console.log('updateBaseColor1000Ms')
+  updatedDelayedColor() {
+    this.delayedColor.updateColor(this._baseColor);
   }
 
   @cached
   getBaseColor(): Color {
     return this.baseColor;
-  }
-
-  @cached
-  getBaseColor250Ms(): Color {
-    return this.baseColor250Ms;
-  }
-
-  @cached
-  getBaseColor500Ms(): Color {
-    return this.baseColor500Ms;
-  }
-
-  @cached
-  getBaseColor750Ms(): Color {
-    return this.baseColor750Ms;
-  }
-
-  @cached
-  getBaseColor1000Ms(): Color {
-    return this.baseColor1000Ms;
-  }
-
-  private synchronizeColorPickers(newColor: Color) {
-    this.colorFromCustomColorPicker.red = newColor.r;
-    this.colorFromCustomColorPicker.green = newColor.g;
-    this.colorFromCustomColorPicker.blue = newColor.b;
   }
 }

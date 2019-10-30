@@ -39,7 +39,7 @@ const style = {
 
 export function Header(): JSX.Element {
   return reactive(() => {
-    const color = appState.getBaseColor750Ms();
+    const color = appState.delayedColor.get750MsDelay();
     return (
       <Card color={color.add(200, 200, 0)}>
         <div className={style.container}>
