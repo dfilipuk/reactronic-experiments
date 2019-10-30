@@ -7,8 +7,8 @@ import { DelayedColorModel } from "./DelayedColor.model";
 export class AppModel extends State {
   private _color: Color;
 
-  delayedColor: DelayedColorModel;
   card: CardModel;
+  delayedColor: DelayedColorModel;
   colorFromCustomColorPicker: ColorModel;
   colorFromNativeColorPicker: ColorModel;
 
@@ -30,6 +30,12 @@ export class AppModel extends State {
   @trigger
   private setColorFromNativeColorPicker() {
     this._color = this.colorFromNativeColorPicker.color;
+  }
+
+  @trigger
+  private synchronizeColorPickers() {
+    this.colorFromCustomColorPicker.setColor(this._color);
+    this.colorFromNativeColorPicker.setColor(this._color);
   }
 
   @trigger
