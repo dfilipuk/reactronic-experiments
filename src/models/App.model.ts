@@ -33,21 +33,21 @@ export class AppModel extends State {
   }
 
   @trigger
-  updatedDelayedColor() {
+  private updatedDelayedColor() {
     this.delayedColor.updateColor(this._color);
   }
 
   @trigger
-  updateCardModel() {
+  private updateCardModel() {
     this.card.color = this._color;
 
     // --- Doesn't work because subscription is made to properties
     // --- of object but don't to object itsef
-    // this.card = new CardModel(this._baseColor);
+    // this.card = new CardModel(this._color);
 
     // --- Doesn't work because Color class does not extends state
-    // this.card.color.r = this._baseColor.r;
-    // this.card.color.g = this._baseColor.g;
-    // this.card.color.b = this._baseColor.b;
+    // this.card.color.r = this._color.r;
+    // this.card.color.g = this._color.g;
+    // this.card.color.b = this._color.b;
   }
 }
