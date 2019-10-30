@@ -34,8 +34,8 @@ const style = {
   content: css`
     grid-column: 2 / span 1;
     grid-row: 2 / span 1;
-  `
-}
+  `,
+};
 
 export function App(): JSX.Element {
   return reactive(() => {
@@ -57,6 +57,6 @@ export function App(): JSX.Element {
           <Content />
         </div>
       </div>
-    )
-  })
+    );
+  });
 }

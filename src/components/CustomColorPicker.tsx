@@ -25,7 +25,7 @@ const style = {
     justify-self: center;
     background: blue;
   `,
-}
+};
 
 export function CustomColorPicker(p: { model: ColorModel }): JSX.Element {
   return reactive(() => {
@@ -47,6 +47,6 @@ export function CustomColorPicker(p: { model: ColorModel }): JSX.Element {
           ></input>
         </div>
       </div>
-    )
+    );
   });
 }

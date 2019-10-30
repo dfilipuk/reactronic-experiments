@@ -26,7 +26,7 @@ const style = {
   card4: css`
     grid-area: 1 / 8 / 1 / 11;
   `,
-}
+};
 
 export function Footer(): JSX.Element {
   return reactive(() => {
@@ -48,6 +48,6 @@ export function Footer(): JSX.Element {
           </div>
         </div>
       </Card>
-    )
-  })
+    );
+  });
 }

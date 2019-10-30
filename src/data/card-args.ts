@@ -3,10 +3,10 @@ import { CardModel } from "../models/Card.model";
 
 export interface CardArgs {
   color: Color;
-  children?: JSX.Element
+  children?: JSX.Element;
 }
 
 export interface ReactiveCardArgs {
   model: CardModel;
-  children?: JSX.Element
+  children?: JSX.Element;
 }

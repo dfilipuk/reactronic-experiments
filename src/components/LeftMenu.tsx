@@ -17,8 +17,8 @@ const style = {
   bottomPart: css`
     grid-column: 1 / 2;
     grid-row: 2 / 3;
-  `
-}
+  `,
+};
 
 export function LeftMenu(): JSX.Element {
   return reactive(() => {
@@ -62,6 +62,6 @@ export function LeftMenu(): JSX.Element {
           </div>
         </div>
       </Card>
-    )
-  })
+    );
+  });
 }

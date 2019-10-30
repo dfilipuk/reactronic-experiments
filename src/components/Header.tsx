@@ -35,7 +35,7 @@ const style = {
   item2: css`
     grid-area: 1 / 3 / 3 / 4;
   `,
-}
+};
 
 export function Header(): JSX.Element {
   return reactive(() => {
@@ -78,6 +78,6 @@ export function Header(): JSX.Element {
           </div>
         </div>
       </Card>
-    )
-  })
+    );
+  });
 }

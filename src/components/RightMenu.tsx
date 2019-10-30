@@ -26,6 +26,6 @@ export function RightMenu(): JSX.Element {
           </Card>
         </Card>
       </Card>
-    )
-  })
+    );
+  });
 }

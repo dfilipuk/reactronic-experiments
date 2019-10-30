@@ -19,8 +19,8 @@ const style = {
   `,
   customColorPicker: css`
     grid-area: 2 / 1 / 3 / 2;
-  `
-}
+  `,
+};
 
 export function ColorSelector(): JSX.Element {
   return reactive(() => {
@@ -33,6 +33,6 @@ export function ColorSelector(): JSX.Element {
           <CustomColorPicker model={appState.colorFromCustomColorPicker} />
         </div>
       </div>
-    )
-  })
+    );
+  });
 }

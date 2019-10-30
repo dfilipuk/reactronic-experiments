@@ -16,8 +16,8 @@ const style = {
     grid-row: 1 / span 1;
     border-radius: 10px;
     margin: 10px;
-  `
-}
+  `,
+};
 
 export function Card(p: CardArgs): JSX.Element {
   return (
@@ -29,7 +29,7 @@ export function Card(p: CardArgs): JSX.Element {
         {p.children}
       </div>
     </div>
-  )
+  );
 }
 
 export function ReactiveCard(p: ReactiveCardArgs): JSX.Element {
@@ -43,6 +43,6 @@ export function ReactiveCard(p: ReactiveCardArgs): JSX.Element {
           {p.children}
         </div>
       </div>
-    )
-  })
+    );
+  });
 }

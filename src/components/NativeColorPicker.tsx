@@ -11,7 +11,7 @@ export function NativeColorPicker(p: { model: ColorModel }): JSX.Element {
         value={`#${numberToHex(p.model.red)}${numberToHex(p.model.green)}${numberToHex(p.model.blue)}`}
         onChange={(e) => valueChanged(e, p)}
       />
-    )
+    );
   });
 }
 

@@ -37,7 +37,7 @@ const style = {
   part5: css`
     grid-area: part5;
   `,
-}
+};
 
 export function Content(): JSX.Element {
   return reactive(() => {
@@ -64,6 +64,6 @@ export function Content(): JSX.Element {
           </div>
         </div>
       </Card>
-    )
-  })
+    );
+  });
 }
