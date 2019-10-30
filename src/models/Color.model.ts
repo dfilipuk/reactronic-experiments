@@ -1,5 +1,6 @@
-import { State, action } from "reactronic";
+import { State, action, monitor } from "reactronic";
 import { Color } from "../data/color";
+import { Monitors } from "./Monitors.model";
 
 export class ColorModel extends State {
   red: number;
@@ -19,6 +20,7 @@ export class ColorModel extends State {
   }
 
   @action
+  @monitor(Monitors.colorChange)
   setColor(newColor: Color) {
     this.red = newColor.r;
     this.green = newColor.g;
@@ -26,16 +28,19 @@ export class ColorModel extends State {
   }
 
   @action
+  @monitor(Monitors.colorChange)
   setRedComponent(value: number) {
     this.red = value;
   }
 
   @action
+  @monitor(Monitors.colorChange)
   setGreenComponent(value: number) {
     this.green = value;
   }
 
   @action
+  @monitor(Monitors.colorChange)
   setBlueComponent(value: number) {
     this.blue = value;
   }
