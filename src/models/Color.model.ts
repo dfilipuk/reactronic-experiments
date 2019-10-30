@@ -18,19 +18,19 @@ export class ColorModel extends State {
   }
 
   @action
-  @monitor(Monitors.colorChange)
+  @monitor(Monitors.colorDebounce)
   setRedComponent(value: number) {
     this._color = new Color(value, this._color.g, this._color.b);
   }
 
   @action
-  @monitor(Monitors.colorChange)
+  @monitor(Monitors.colorDebounce)
   setGreenComponent(value: number) {
     this._color = new Color(this._color.r, value, this._color.b);
   }
 
   @action
-  @monitor(Monitors.colorChange)
+  @monitor(Monitors.colorDebounce)
   setBlueComponent(value: number) {
     this._color = new Color(this._color.r, this._color.g, value);
   }

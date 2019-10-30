@@ -1,4 +1,4 @@
-import { State, trigger } from "reactronic";
+import { State } from "reactronic";
 import { Color } from "../data/color";
 import { ColorModel } from "./Color.model";
 import { DelayedColorModel } from "./DelayedColor.model";
