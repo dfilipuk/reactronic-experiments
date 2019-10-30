@@ -21,6 +21,15 @@ export class ColorModel extends State {
   @monitor(Monitors.colorDebounce)
   setRedComponent(value: number) {
     this._color = new Color(value, this._color.g, this._color.b);
+
+    // -- Doesn't work because Color not stateful.
+    // -- By the way it makes slider unmovable:
+    // -- OnChange event occurs and new value sets
+    // -- but caches and triggers are not invalidated
+    // -- so components are not rerendered by Reactronic.
+    // this._color.r = value;
+
+    // console.log('setRedComponent');
   }
 
   @action
