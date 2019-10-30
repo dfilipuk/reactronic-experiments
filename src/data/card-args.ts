@@ -1,5 +1,5 @@
 import { Color } from "./color";
-import { CardModel } from "../models/Card.model";
+import { ColorModel } from "../models/Color.model";
 
 export interface CardArgs {
   color: Color;
@@ -7,6 +7,6 @@ export interface CardArgs {
 }
 
 export interface ReactiveCardArgs {
-  model: CardModel;
+  model: ColorModel;
   children?: JSX.Element;
 }

@@ -32,17 +32,17 @@ export function CustomColorPicker(p: { model: ColorModel }): JSX.Element {
     return (
       <div className={style.container}>
         <div className={style.red}>
-          <input type="range" min="0" max="255" value={p.model.red} 
+          <input type="range" min="0" max="255" value={p.model.color.r} 
             onChange={(e) => p.model.setRedComponent(parseInt(e.target.value, 10))}
           ></input>
         </div>
         <div className={style.green}>
-          <input type="range" min="0" max="255" value={p.model.green} 
+          <input type="range" min="0" max="255" value={p.model.color.g} 
             onChange={(e) => p.model.setGreenComponent(parseInt(e.target.value, 10))}
           ></input>
         </div>
         <div className={style.blue}>
-          <input type="range" min="0" max="255" value={p.model.blue} 
+          <input type="range" min="0" max="255" value={p.model.color.b} 
             onChange={(e) => p.model.setBlueComponent(parseInt(e.target.value, 10))}
           ></input>
         </div>

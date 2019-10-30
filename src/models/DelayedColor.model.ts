@@ -1,27 +1,21 @@
 import { State, action, trigger, delay, cached } from "reactronic";
 import { Color } from "../data/color";
+import { ColorModel } from "./Color.model";
 
 export class DelayedColorModel extends State {
-  private _color: Color;
 
   delay250Ms: Color;
   delay500Ms: Color;
   delay750Ms: Color;
   delay1000Ms: Color;
 
-  constructor(r: number, g: number, b: number) {
+  constructor(private _model: ColorModel) {
     super();
 
-    this._color = new Color(r, g, b);
-    this.delay250Ms = this._color;
-    this.delay500Ms = this._color;
-    this.delay750Ms = this._color;
-    this.delay1000Ms = this._color;
-  }
-
-  @action
-  updateColor(newColor: Color) {
-    this._color = newColor;
+    this.delay250Ms = this._model.color;
+    this.delay500Ms = this._model.color;
+    this.delay750Ms = this._model.color;
+    this.delay1000Ms = this._model.color;
   }
 
   @cached
@@ -47,28 +41,28 @@ export class DelayedColorModel extends State {
   @trigger
   @delay(250)
   private updateWith250MsDelay() {
-    this.delay250Ms = this._color;
+    this.delay250Ms = this._model.color;
     // console.log('updateWith250MsDelay');
   }
 
   @trigger
   @delay(500)
   private updateWith500MsDelay() {
-    this.delay500Ms = this._color;
+    this.delay500Ms = this._model.color;
     // console.log('updateWith500MsDelay');
   }
 
   @trigger
   @delay(750)
   private updateWith750MsDelay() {
-    this.delay750Ms = this._color;
+    this.delay750Ms = this._model.color;
     // console.log('updateWith750MsDelay');
   }
 
   @trigger
   @delay(1000)
   private updateWith1000MsDelay() {
-    this.delay1000Ms = this._color;
+    this.delay1000Ms = this._model.color;
     // console.log('updateWith1000MsDelay');
   }
 }

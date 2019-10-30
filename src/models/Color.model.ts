@@ -3,44 +3,35 @@ import { Color } from "../data/color";
 import { Monitors } from "./Monitors.model";
 
 export class ColorModel extends State {
-  red: number;
-  green: number;
-  blue: number;
 
-  constructor(r: number, g: number, b: number) {
+  constructor(private _color: Color) {
     super();
-
-    this.red = r;
-    this.green = g;
-    this.blue = b;
   }
 
   get color(): Color {
-    return new Color(this.red, this.green, this.blue);
+    return this._color;
   }
 
   @action
   setColor(newColor: Color) {
-    this.red = newColor.r;
-    this.green = newColor.g;
-    this.blue = newColor.b;
+    this._color = newColor;
   }
 
   @action
   @monitor(Monitors.colorChange)
   setRedComponent(value: number) {
-    this.red = value;
+    this._color = new Color(value, this._color.g, this._color.b);
   }
 
   @action
   @monitor(Monitors.colorChange)
   setGreenComponent(value: number) {
-    this.green = value;
+    this._color = new Color(this._color.r, value, this._color.b);
   }
 
   @action
   @monitor(Monitors.colorChange)
   setBlueComponent(value: number) {
-    this.blue = value;
+    this._color = new Color(this._color.r, this._color.g, value);
   }
 }

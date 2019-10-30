@@ -46,7 +46,7 @@ export function Content(): JSX.Element {
       <Card color={color.add(0, 200, 0)}>
         <div className={style.container}>
           <div className={style.part1}>
-            <ReactiveCard model={appState.card}>
+            <ReactiveCard model={appState.color}>
               <ColorSelector />
             </ReactiveCard>
           </div>

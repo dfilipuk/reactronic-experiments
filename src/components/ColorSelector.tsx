@@ -26,10 +26,10 @@ export function ColorSelector(): JSX.Element {
     return (
       <div className={style.container}>
         <div className={style.nativeColorPicker}>
-          <NativeColorPicker model={appState.colorFromColorPicker} />
+          <NativeColorPicker model={appState.color} />
         </div>
         <div className={style.customColorPicker}>
-          <CustomColorPicker model={appState.colorFromColorPicker} />
+          <CustomColorPicker model={appState.color} />
         </div>
       </div>
     );
