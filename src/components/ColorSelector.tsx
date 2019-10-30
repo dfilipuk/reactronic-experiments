@@ -27,7 +27,7 @@ export function ColorSelector(): JSX.Element {
     return (
       <div className={style.container}>
         <div className={style.nativeColorPicker}>
-          <NativeColorPicker onChange={onColorChange} />
+          <NativeColorPicker model={appState.colorFromNativeColorPicker} />
         </div>
         <div className={style.customColorPicker}>
           <CustomColorPicker model={appState.colorFromCustomColorPicker} />
@@ -35,8 +35,4 @@ export function ColorSelector(): JSX.Element {
       </div>
     )
   })
-}
-
-function onColorChange(newColor: Color) {
-  appState.setBaseColor(newColor);
 }

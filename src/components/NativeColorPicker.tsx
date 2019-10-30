@@ -1,19 +1,18 @@
 import * as React from 'react'
-import { reactive } from 'reactronic-toolkit-react'
 import { Color } from '../data/color';
-import { ColorPickerArgs } from '../data/color-picker-args';
+import { ColorModel } from '../models/Color.model';
 
-export function NativeColorPicker(p: ColorPickerArgs): JSX.Element {
+export function NativeColorPicker(p: { model: ColorModel }): JSX.Element {
   return (
     <input type="color" onChange={(e) => valueChanged(e, p)}></input>
   )
 }
 
-function valueChanged(e: React.ChangeEvent<HTMLInputElement>, p: ColorPickerArgs) {
+function valueChanged(e: React.ChangeEvent<HTMLInputElement>, p: { model: ColorModel }) {
   const color = getColor(e.target.value);
 
-  if (color && p.onChange) {
-    p.onChange(color);
+  if (color) {
+    p.model.setColor(color);
   }
 }
 

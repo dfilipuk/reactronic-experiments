@@ -5,46 +5,41 @@ import { ColorModel } from "./Color.model";
 import { DelayedColorModel } from "./DelayedColor.model";
 
 export class AppModel extends State {
-  private _baseColor: Color;
-
-  baseColor: Color;
+  private _color: Color;
 
   delayedColor: DelayedColorModel;
   card: CardModel;
   colorFromCustomColorPicker: ColorModel;
+  colorFromNativeColorPicker: ColorModel;
 
   constructor() {
     super();
 
-    this._baseColor = new Color(0, 0, 0);
-    this.baseColor = this._baseColor;
+    this._color = new Color(0, 0, 0);
     this.delayedColor = new DelayedColorModel(0, 0, 0);
-    this.card = new CardModel(this._baseColor);
+    this.card = new CardModel(this._color);
     this.colorFromCustomColorPicker = new ColorModel(0, 0, 0);
-  }
-
-  @action
-  setBaseColor(newColor: Color) {
-    this._baseColor = newColor;
-
-    // --- Doesn't work because Color class does not extends state
-    // this._baseColor.r = newColor.r;
-    // this._baseColor.g = newColor.g;
-    // this._baseColor.b = newColor.b;
+    this.colorFromNativeColorPicker = new ColorModel(0, 0, 0);
   }
 
   @trigger
-  updateBaseColorFromColorPicker() {
-    this._baseColor = new Color(
-      this.colorFromCustomColorPicker.red,
-      this.colorFromCustomColorPicker.green,
-      this.colorFromCustomColorPicker.blue
-    );
+  private setColorFromCustomColorPicker() {
+    this._color = this.colorFromCustomColorPicker.color;
+  }
+
+  @trigger
+  private setColorFromNativeColorPicker() {
+    this._color = this.colorFromNativeColorPicker.color;
+  }
+
+  @trigger
+  updatedDelayedColor() {
+    this.delayedColor.updateColor(this._color);
   }
 
   @trigger
   updateCardModel() {
-    this.card.color = this._baseColor;
+    this.card.color = this._color;
 
     // --- Doesn't work because subscription is made to properties
     // --- of object but don't to object itsef
@@ -54,21 +49,5 @@ export class AppModel extends State {
     // this.card.color.r = this._baseColor.r;
     // this.card.color.g = this._baseColor.g;
     // this.card.color.b = this._baseColor.b;
-  }
-
-  @trigger
-  updateBaseColor() {
-    this.baseColor = this._baseColor;
-    //console.log('updateBaseColor')
-  }
-
-  @trigger
-  updatedDelayedColor() {
-    this.delayedColor.updateColor(this._baseColor);
-  }
-
-  @cached
-  getBaseColor(): Color {
-    return this.baseColor;
   }
 }

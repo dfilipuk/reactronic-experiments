@@ -1,4 +1,5 @@
 import { State, action } from "reactronic";
+import { Color } from "../data/color";
 
 export class ColorModel extends State {
   red: number;
@@ -11,6 +12,17 @@ export class ColorModel extends State {
     this.red = r;
     this.green = g;
     this.blue = b;
+  }
+
+  get color(): Color {
+    return new Color(this.red, this.green, this.blue);
+  }
+
+  @action
+  setColor(newColor: Color) {
+    this.red = newColor.r;
+    this.green = newColor.g;
+    this.blue = newColor.b;
   }
 
   @action
