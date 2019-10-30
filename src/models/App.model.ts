@@ -25,17 +25,20 @@ export class AppModel extends State {
   @trigger
   private setColorFromCustomColorPicker() {
     this._color = this.colorFromCustomColorPicker.color;
+    // console.log('setColorFromCustomColorPicker');
   }
 
   @trigger
   private setColorFromNativeColorPicker() {
     this._color = this.colorFromNativeColorPicker.color;
+    // console.log('setColorFromNativeColorPicker');
   }
 
   @trigger
   private synchronizeColorPickers() {
     this.colorFromCustomColorPicker.setColor(this._color);
     this.colorFromNativeColorPicker.setColor(this._color);
+    // console.log('synchronizeColorPickers');
   }
 
   @trigger
@@ -47,6 +50,8 @@ export class AppModel extends State {
   @trigger
   private updateCardModel() {
     this.card.color = this._color;
+
+    // console.log('updateCardModel');
 
     // --- Doesn't work because subscription is made to properties
     // --- of object but don't to object itsef
