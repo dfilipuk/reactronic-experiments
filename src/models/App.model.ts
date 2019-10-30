@@ -9,8 +9,7 @@ export class AppModel extends State {
 
   card: CardModel;
   delayedColor: DelayedColorModel;
-  colorFromCustomColorPicker: ColorModel;
-  colorFromNativeColorPicker: ColorModel;
+  colorFromColorPicker: ColorModel;
 
   constructor() {
     super();
@@ -18,27 +17,13 @@ export class AppModel extends State {
     this._color = new Color(0, 0, 0);
     this.delayedColor = new DelayedColorModel(0, 0, 0);
     this.card = new CardModel(this._color);
-    this.colorFromCustomColorPicker = new ColorModel(0, 0, 0);
-    this.colorFromNativeColorPicker = new ColorModel(0, 0, 0);
+    this.colorFromColorPicker = new ColorModel(0, 0, 0);
   }
 
   @trigger
-  private setColorFromCustomColorPicker() {
-    this._color = this.colorFromCustomColorPicker.color;
-    // console.log('setColorFromCustomColorPicker');
-  }
-
-  @trigger
-  private setColorFromNativeColorPicker() {
-    this._color = this.colorFromNativeColorPicker.color;
-    // console.log('setColorFromNativeColorPicker');
-  }
-
-  @trigger
-  private synchronizeColorPickers() {
-    this.colorFromCustomColorPicker.setColor(this._color);
-    this.colorFromNativeColorPicker.setColor(this._color);
-    // console.log('synchronizeColorPickers');
+  private setColorFromColorPicker() {
+    this._color = this.colorFromColorPicker.color;
+    // console.log('setColorFromColorPicker');
   }
 
   @trigger
