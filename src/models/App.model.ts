@@ -35,6 +35,7 @@ export class AppModel extends State {
   @trigger
   private updatedDelayedColor() {
     this.delayedColor.updateColor(this._color);
+    // console.log('updatedDelayedColor');
   }
 
   @trigger

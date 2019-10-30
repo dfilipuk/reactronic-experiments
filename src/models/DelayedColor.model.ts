@@ -48,23 +48,27 @@ export class DelayedColorModel extends State {
   @delay(250)
   private updateWith250MsDelay() {
     this.delay250Ms = this._color;
+    // console.log('updateWith250MsDelay');
   }
 
   @trigger
   @delay(500)
   private updateWith500MsDelay() {
     this.delay500Ms = this._color;
+    // console.log('updateWith500MsDelay');
   }
 
   @trigger
   @delay(750)
   private updateWith750MsDelay() {
     this.delay750Ms = this._color;
+    // console.log('updateWith750MsDelay');
   }
 
   @trigger
   @delay(1000)
   private updateWith1000MsDelay() {
     this.delay1000Ms = this._color;
+    // console.log('updateWith1000MsDelay');
   }
 }
