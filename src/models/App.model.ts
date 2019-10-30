@@ -3,6 +3,7 @@ import { Color } from "../data/color";
 import { CardModel } from "./Card.model";
 import { ColorModel } from "./Color.model";
 import { DelayedColorModel } from "./DelayedColor.model";
+import { Monitors } from "./Monitors.model";
 
 export class AppModel extends State {
   private _color: Color;
@@ -28,7 +29,9 @@ export class AppModel extends State {
 
   @trigger
   private updatedDelayedColor() {
-    this.delayedColor.updateColor(this._color);
+    if (!Monitors.colorChange.busy) {
+      this.delayedColor.updateColor(this._color);
+    }
     // console.log('updatedDelayedColor');
   }
 

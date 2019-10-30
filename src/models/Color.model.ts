@@ -20,7 +20,6 @@ export class ColorModel extends State {
   }
 
   @action
-  @monitor(Monitors.colorChange)
   setColor(newColor: Color) {
     this.red = newColor.r;
     this.green = newColor.g;
