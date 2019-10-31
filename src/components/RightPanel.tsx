@@ -3,7 +3,7 @@ import { reactive } from 'reactronic-toolkit-react'
 import { Card } from './Card'
 import { appState } from '..'
 
-export function RightMenu(): JSX.Element {
+export function RightPanel(): JSX.Element {
   return reactive(() => {
     const color = appState.delayedColor.get500MsDelay();
     const startColor = color.add(50, 170, 140);

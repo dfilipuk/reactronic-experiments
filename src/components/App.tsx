@@ -3,8 +3,8 @@ import { css } from 'emotion'
 import { reactive } from 'reactronic-toolkit-react'
 import { Header } from './Header'
 import { Footer } from './Footer'
-import { LeftMenu } from './LeftMenu'
-import { RightMenu } from './RightMenu'
+import { LeftPanel } from './LeftPanel'
+import { RightPanel } from './RightPanel'
 import { Content } from './Content'
 
 const style = {
@@ -48,10 +48,10 @@ export function App(): JSX.Element {
           <Footer />
         </div>
         <div className={style.leftMenu}>
-          <LeftMenu />
+          <LeftPanel />
         </div>
         <div className={style.rightMenu}>
-          <RightMenu />
+          <RightPanel />
         </div>
         <div className={style.content}>
           <Content />

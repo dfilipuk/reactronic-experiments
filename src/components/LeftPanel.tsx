@@ -20,7 +20,7 @@ const style = {
   `,
 };
 
-export function LeftMenu(): JSX.Element {
+export function LeftPanel(): JSX.Element {
   return reactive(() => {
     const color = appState.delayedColor.delay500Ms;
     return (
